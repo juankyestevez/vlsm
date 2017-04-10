@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vlsm</title>
+    <title>VLSM | Calculadora</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <%= render 'partials/navbar' %>
+
+  <style>
+    html{font-size: 16px}
+  </style>
+
+  <body class="mt-5">
     <%= yield %>
   </body>
 </html>
