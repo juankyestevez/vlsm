@@ -1,0 +1,66 @@
+<style>
+  .color-requerimientos{background-color: rgb(255, 255, 255)}
+  .letra-titulo{font-size: 1.8rem}
+  .letra-requerimientos{font-size: 1.3rem}
+  .button-click{cursor: pointer;}
+</style>
+
+<div class="pt-5 pb-5 color-requerimientos">
+
+  <!-- Titulo -->
+  <div class="col-12 mb-5 d-flex justify-content-center text-uppercase letra-titulo">
+    <%= label_tag :no_redes, "Requerimientos" %>
+  </div>
+  <!-- FIN Titulo -->
+
+
+  <%= form_tag controller: :main, action: :get_datos_redes do %>
+
+    <div class="container">
+
+      <!-- No de redes -->
+      <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+          <%= label_tag :no_redes, "Número de redes:", class: "letra-requerimientos" %>
+        </div>
+
+        <div class="col-sm-4 col-md-6">
+          <% if @numero_redes %>
+            <%= number_field_tag :no_redes, @numero_redes, class: "mw-100 pl-2", disabled: true %>
+          <% else %>
+            <%= number_field_tag :no_redes, nil, min: 2, class: "mw-100 pl-2", required: true %>
+          <% end %>
+        </div>
+      </div>
+      <!-- FIN No de redes -->
+
+      <!-- No enlaces seriales -->
+      <div class="row justify-content-center mt-sm-2">
+        <div class="col-sm-8 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+          <%= label_tag :no_seriales, "Número de enlaces seriales:", class: "letra-requerimientos" %>
+        </div>
+
+        <div class="col-sm-4 col-md-6">
+          <% if @numero_redes %>
+            <%= number_field_tag :no_seriales, @numero_seriales, class: "mw-100 pl-2", disabled: true %>
+          <% else %>
+            <%= number_field_tag :no_seriales, nil, min: 0, class: "mw-100 pl-2", required: true %>
+          <% end %>
+        </div>
+
+      </div>
+      <!-- FIN No enlaces seriales -->
+
+      <div class="row justify-content-center mt-sm-3 mt-md-5">
+        <% if @numero_redes %>
+          <%= submit_tag 'Continuar', class: "btn btn-success button-click", disabled: true %>
+        <% else %>
+          <%= submit_tag 'Continuar', class: "btn btn-success button-click" %>
+        <% end %>
+      </div>
+    </div>
+
+    <% end %>
+
+
+</div>

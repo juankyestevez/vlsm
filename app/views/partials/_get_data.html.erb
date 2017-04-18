@@ -1,0 +1,122 @@
+<style>
+  .color-datos{background-color: rgba(255, 255, 255, 1)}
+  .letra-datos-titulos{font-size: 1.8rem}
+  .letra-datos-subtitulos{font-size: 1.4rem}
+  .letra-datos{font-size: 1.3rem}
+  .letra-color{color: rgb(0, 0, 0)}
+  .linea-separacion{height: 1px}
+  .color-linea-separacion{background-color: rgba(0, 0, 0, 0.8)}
+</style>
+
+<div class="container">
+  <div class="linea-separacion color-linea-separacion" id="get_data_div"></div>
+</div>
+
+
+<div class="pt-5 pb-5 color-datos">
+
+  <!-- Titulo -->
+  <div class="col-12 mb-2 d-flex justify-content-center text-uppercase letra-datos-titulos letra-color">
+    <%= label_tag "Datos por cada subred" %>
+  </div>
+  <!-- FIN Titulo -->
+
+  <!-- PONER EN FORMULARIO, PONER INDICES EN LA ITERACION -->
+
+  <!-- Insertar datos de cada red -->
+  <%= form_tag controller: :main, action: :calcular_redes do %>
+
+    <div class="container">
+
+        <% (1..@numero_redes).each do |num| %>
+
+          <!-- Numero de la red -->
+          <div class="row justify-content-center">
+            <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
+              <%= label_tag "RED No. #{num}" %>
+            </div>
+          </div>
+          <!-- FIN Numero de la red -->
+
+          <!-- Nombre de la red -->
+          <div class="row justify-content-center">
+            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+              <%= label_tag "Nombre de la red:", nil, class: "letra-datos letra-color" %>
+            </div>
+
+            <div class="col-sm-4 col-md-6">
+              <% if @calculado %>
+                <%= text_field_tag "red#{num}_nombre", @redes_nombre[num-1], class: "mw-100 pl-2 ml-md-2", disabled: true %>
+              <% else %>
+                <%= text_field_tag "red#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
+              <% end %>
+            </div>
+          </div>
+          <!-- FIN Nombre de la red -->
+
+          <!-- Numero de hosts -->
+          <div class="row justify-content-center">
+            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+              <%= label_tag "Número de host:", nil, class: "letra-datos letra-color mt-2" %>
+            </div>
+
+            <div class="col-sm-4 col-md-6">
+              <% if @calculado %>
+                <%= text_field_tag "red#{num}_hosts", @redes_hosts[num-1], class: "mw-100 pl-2", disabled: true %>
+              <% else %>
+                <%= text_field_tag "red#{num}_hosts", nil, class: "mw-100 pl-2", required: true %>
+              <% end %>
+            </div>
+          </div>
+          <!-- FIN Numero de hosts -->
+
+        <% end %>
+
+        <!---->
+        <% (1..@numero_seriales).each do |num| %>
+
+          <!-- Numero del enlace serial -->
+          <div class="row justify-content-center">
+            <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
+              <%= label_tag "SERIAL No. #{num}" %>
+            </div>
+          </div>
+          <!-- FIN Numero del enlace serial -->
+
+          <!-- Nombre del enlace serial -->
+          <div class="row justify-content-center">
+            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+              <%= label_tag "Nombre de la red:", nil, class: "letra-datos letra-color" %>
+            </div>
+
+            <div class="col-sm-4 col-md-6">
+              <% if @calculado %>
+                <%= text_field_tag "red#{num}_nombre", @seriales_nombre[num-1], class: "mw-100 pl-2 ml-md-2", disabled: true %>
+              <% else %>
+                <%= text_field_tag "red#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
+              <% end %>
+            </div>
+          </div>
+          <!-- FIN Nombre del enlace serial -->
+
+        <% end %>
+        <!---->
+
+      </div>
+
+
+      <div class="row justify-content-center mt-sm-3 mt-md-5">
+        <% if @claculado %>
+          <%= submit_tag 'Calcular', class: "btn btn-success button-click", disabled: true %>
+        <% else %>
+          <%= submit_tag 'Calcular', class: "btn btn-success button-click" %>
+        <% end %>
+      </div>
+
+
+
+
+  <% end %>
+  <!-- FIN Insertar datos de cada red -->
+
+</div>

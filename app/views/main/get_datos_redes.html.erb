@@ -1,0 +1,20 @@
+<!-- Navbar -->
+<%= render 'partials/vlsm_text' %>
+<!-- FIN Navbar -->
+
+<!-- Requerimientos -->
+<%= render 'partials/requerimientos' %>
+<!-- FIN Requerimientos -->
+
+<!-- Informacion redes -->
+<%= render 'partials/get_data' %>
+<!-- FIN Informacion redes -->
+
+<!-- Scroll to get_data -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('html, body').animate({
+        scrollTop: $("#get_data_div").offset().top
+    }, 1000);
+  });
+</script>

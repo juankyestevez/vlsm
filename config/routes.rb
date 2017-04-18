@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   get 'main/sing_up'
 
+  post 'main/get_datos_redes'
+  get 'main/get_datos_redes'
+
+  post 'main/calcular_redes'
+  get 'main/calcular_redes'
 
   # Ruta raiz
   root to: 'main#index'
