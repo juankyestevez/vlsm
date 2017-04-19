@@ -19,8 +19,13 @@ class MainController < ApplicationController
     @ip_inicial = params[:ip_inicial]
     @msk_inicial = params[:msk_inicial]
 
-    @numero_redes = params[:numero_redes].to_i
-    @numero_seriales = params[:numero_seriales].to_i
+    @numero_redes = params[:no_redes].to_i
+    @numero_seriales = params[:no_seriales].to_i
+
+    unless msk_valida?(@msk_inicial)
+      flash[:mensaje] = "La información ingresada es INCORRECTA"
+      redirect_to controller: :main, action: :get_datos_redes, no_redes: @numero_redes, no_seriales: @numero_seriales
+    end
 
     @nombres = []
     @hosts = []
@@ -37,10 +42,12 @@ class MainController < ApplicationController
     end
     # FIN Toma de datos
 
-    resultados = calcular_vlsm(@nombres, @hosts, @ip_inicial, @msk_inicial)
+    # Calculo de resultados
+    @resultados = calcular_vlsm(@nombres, @hosts, @ip_inicial, @msk_inicial)
 
+=begin
     File.open('resultados.txt', 'w+') do |f|
-      resultados.map { |x|
+      resultados.map do |x|
         f.puts "Nombre:\t\t#{x[:nombre]}"
         f.puts "Red:\t\t#{x[:red]} /#{x[:mascara_num]}"
         f.puts "Mascara:\t#{x[:mascara]}"
@@ -49,18 +56,37 @@ class MainController < ApplicationController
         f.puts "Total de host:\t#{x[:host_total]}"
         f.puts "broadcast:\t#{x[:broadcast]}"
         f.puts "---"
-      }
+      end
     end
-
-    render text: "OK"
+=end
 
   end
+
 
   def sing_in
-    @p = params[:requerimientos]
-    render text: "Texto: #{p.texto} y Numero: #{p.numero}"
+    flash[:mensaje] = ""
   end
 
+
   def sing_up
+
   end
+
+
+  private
+
+  def msk_valida?(mascara)
+    @ans = true
+    @msk_array = mascara.split(".")
+    @msk_array.map do |num|
+      num = num.to_i
+      p num
+      unless num >= 0 && num <= 255
+        @ans = false
+      end
+    end
+    @ans
+  end
+
+
 end

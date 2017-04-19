@@ -21,37 +21,45 @@
   </div>
   <!-- FIN Titulo -->
 
-  <!-- IP Inicial -->
-  <div class="row justify-content-center">
-    <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
-      <%= label_tag :ip_inicial, "Direccion IP Inicial:", class: "letra-datos-subtitulos letra-color" %>
-    </div>
 
-    <div class="col-sm-4 col-md-6">
-      <% if @calculado %>
-        <%= text_field_tag :ip_inicial, @ip_inicial, class: "mw-100 pl-2", disabled: true %>
-      <% else %>
-        <%= text_field_tag :ip_inicial, nil, class: "mw-100 pl-2", required: true %>
-      <% end %>
+  <%= form_tag controller: :main, action: :calcular_redes do %>
+
+
+  <div class="container">
+
+    <!-- IP Inicial -->
+    <div class="row justify-content-center">
+      <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+        <%= label_tag :ip_inicial, "Direccion IP Inicial:", class: "letra-datos-subtitulos letra-color" %>
+      </div>
+
+      <div class="col-sm-4 col-md-6">
+        <% if @calculado %>
+          <%= text_field_tag :ip_inicial, @ip_inicial, class: "mw-100 pl-2", disabled: true, id: "focus1" %>
+        <% else %>
+          <%= text_field_tag :ip_inicial, nil, class: "mw-100 pl-2", required: true, id: "focus1" %>
+        <% end %>
+      </div>
     </div>
+    <!-- FIN IP Inicial -->
+
+    <!-- MSK Inicial -->
+    <div class="row justify-content-center">
+      <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+        <%= label_tag :msk_inicial, "Máscara (octetos):", class: "letra-datos-subtitulos letra-color" %>
+      </div>
+
+      <div class="col-sm-4 col-md-6">
+        <% if @calculado %>
+          <%= text_field_tag :msk_inicial, @msk_inicial, class: "mw-100 pl-2", disabled: true %>
+        <% else %>
+          <%= text_field_tag :msk_inicial, nil, class: "mw-100 pl-2", required: true %>
+        <% end %>
+      </div>
+    </div>
+    <!-- FIN MSK Inicial -->
+
   </div>
-  <!-- FIN IP Inicial -->
-
-  <!-- MSK Inicial -->
-  <div class="row justify-content-center">
-    <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
-      <%= label_tag :msk_inicial, "Máscara (octetos):", class: "letra-datos-subtitulos letra-color" %>
-    </div>
-
-    <div class="col-sm-4 col-md-6">
-      <% if @calculado %>
-        <%= text_field_tag :msk_inicial, @msk_inicial, class: "mw-100 pl-2", disabled: true %>
-      <% else %>
-        <%= text_field_tag :msk_inicial, nil, class: "mw-100 pl-2", required: true %>
-      <% end %>
-    </div>
-  </div>
-  <!-- FIN MSK Inicial -->
 
   <div class="container">
     <div class="linea-separacion color-linea-separacion my-5" id="get_data_div"></div>
@@ -64,110 +72,109 @@
   </div>
   <!-- FIN Titulo -->
 
-  <!-- PONER EN FORMULARIO, PONER INDICES EN LA ITERACION -->
 
   <!-- Insertar datos de cada red -->
-  <%= form_tag controller: :main, action: :calcular_redes do %>
+
 
     <div class="container">
 
+      <% (1..@numero_redes).each do |num| %>
 
-
-
-        <% (1..@numero_redes).each do |num| %>
-
-          <!-- Numero de la red -->
-          <div class="row justify-content-center">
-            <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
-              <%= label_tag "RED No. #{num}" %>
-            </div>
+        <!-- Numero de la red -->
+        <div class="row justify-content-center">
+          <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
+            <%= label_tag "RED No. #{num}" %>
           </div>
-          <!-- FIN Numero de la red -->
+        </div>
+        <!-- FIN Numero de la red -->
 
-          <!-- Nombre de la red -->
-          <div class="row justify-content-center">
-            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
-              <%= label_tag "Nombre de la red:", nil, class: "letra-datos letra-color" %>
-            </div>
-
-            <div class="col-sm-4 col-md-6">
-              <% if @calculado %>
-                <%= text_field_tag "red#{num}_nombre", @redes_nombre[num-1], class: "mw-100 pl-2 ml-md-2", disabled: true %>
-              <% else %>
-                <%= text_field_tag "red#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
-              <% end %>
-            </div>
+        <!-- Nombre de la red -->
+        <div class="row justify-content-center">
+          <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+            <%= label_tag "Nombre de la red:", nil, class: "letra-datos letra-color" %>
           </div>
-          <!-- FIN Nombre de la red -->
 
-          <!-- Numero de hosts -->
-          <div class="row justify-content-center">
-            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
-              <%= label_tag "Número de host:", nil, class: "letra-datos letra-color mt-2" %>
-            </div>
-
-            <div class="col-sm-4 col-md-6">
-              <% if @calculado %>
-                <%= text_field_tag "red#{num}_hosts", @redes_hosts[num-1], class: "mw-100 pl-2", disabled: true %>
-              <% else %>
-                <%= text_field_tag "red#{num}_hosts", nil, class: "mw-100 pl-2", required: true %>
-              <% end %>
-            </div>
+          <div class="col-sm-4 col-md-6">
+            <% if @calculado %>
+              <%= text_field_tag "red#{num}_nombre", @nombres[num-1], class: "mw-100 pl-2", disabled: true %>
+            <% else %>
+              <%= text_field_tag "red#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
+            <% end %>
           </div>
-          <!-- FIN Numero de hosts -->
+        </div>
+        <!-- FIN Nombre de la red -->
 
-        <% end %>
-
-
-        <!-- Numero de redes -->
-          <%= hidden_field_tag :numero_redes, @numero_redes %>
-        <!-- FIN Numero de redes -->
-
-
-        <% (1..@numero_seriales).each do |num| %>
-
-          <!-- Numero del enlace serial -->
-          <div class="row justify-content-center">
-            <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
-              <%= label_tag "SERIAL No. #{num}" %>
-            </div>
+        <!-- Numero de hosts -->
+        <div class="row justify-content-center">
+          <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+            <%= label_tag "Número de host:", nil, class: "letra-datos letra-color mt-2" %>
           </div>
-          <!-- FIN Numero del enlace serial -->
 
-          <!-- Nombre del enlace serial -->
-          <div class="row justify-content-center">
-            <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
-              <%= label_tag "Nombre del enlace serial:", nil, class: "letra-datos letra-color" %>
-            </div>
-
-            <div class="col-sm-4 col-md-6">
-              <% if @calculado %>
-                <%= text_field_tag "serial#{num}_nombre", @seriales_nombre[num-1], class: "mw-100 pl-2 ml-md-2", disabled: true %>
-              <% else %>
-                <%= text_field_tag "serial#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
-              <% end %>
-            </div>
+          <div class="col-sm-4 col-md-6">
+            <% if @calculado %>
+              <%= number_field_tag "red#{num}_hosts", @hosts[num-1], class: "mw-100 pl-2", disabled: true %>
+            <% else %>
+              <%= number_field_tag "red#{num}_hosts", nil, min: 1, class: "mw-100 pl-2", required: true %>
+            <% end %>
           </div>
-          <!-- FIN Nombre del enlace serial -->
+        </div>
+        <!-- FIN Numero de hosts -->
 
-        <% end %>
-
-        <!-- Numero de redes -->
-          <%= hidden_field_tag :numero_seriales, @numero_seriales %>
-        <!-- FIN Numero de redes -->
-
-      </div>
+      <% end %>
 
 
-      <div class="row justify-content-center mt-sm-3 mt-md-5">
-        <% if @claculado %>
-          <%= submit_tag 'Calcular', class: "btn btn-success button-click", disabled: true %>
-        <% else %>
-          <%= submit_tag 'Calcular', class: "btn btn-success button-click" %>
-        <% end %>
-      </div>
+      <!-- Numero de redes -->
+      <%= hidden_field_tag :no_redes, @numero_redes %>
+      <!-- FIN Numero de redes -->
 
 
+      <% (1..@numero_seriales).each do |num| %>
+
+        <!-- Numero del enlace serial -->
+        <div class="row justify-content-center">
+          <div class="col-12 mt-3 mb-2 d-flex justify-content-center text-uppercase letra-datos-subtitulos letra-color">
+            <%= label_tag "SERIAL No. #{num}" %>
+          </div>
+        </div>
+        <!-- FIN Numero del enlace serial -->
+
+        <!-- Nombre del enlace serial -->
+        <div class="row justify-content-center">
+          <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+            <%= label_tag "Nombre del enlace serial:", nil, class: "letra-datos letra-color" %>
+          </div>
+
+          <div class="col-sm-4 col-md-6">
+            <% if @calculado %>
+              <%= text_field_tag "serial#{num}_nombre", @nombres[@numero_redes + num-1], class: "mw-100 pl-2", disabled: true %>
+            <% else %>
+              <%= text_field_tag "serial#{num}_nombre", nil, class: "mw-100 pl-2", required: true %>
+            <% end %>
+          </div>
+        </div>
+        <!-- FIN Nombre del enlace serial -->
+
+      <% end %>
+
+      <!-- Numero de redes -->
+      <%= hidden_field_tag :no_seriales, @numero_seriales %>
+      <!-- FIN Numero de redes -->
+
+
+      <!-- Numero de redes -->
+      <%= hidden_field_tag :calculado, :true %>
+      <!-- FIN Numero de redes -->
+
+    </div>
+
+
+    <div class="row justify-content-center mt-sm-3 mt-md-5">
+      <% if @claculado %>
+        <%= submit_tag 'Calcular', class: "btn btn-success button-click", disabled: true %>
+      <% else %>
+        <%= submit_tag 'Calcular', class: "btn btn-success button-click" %>
+      <% end %>
+    </div>
 
 
   <% end %>

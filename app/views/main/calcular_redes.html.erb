@@ -14,13 +14,17 @@
 <%= render 'partials/get_data' %>
 <!-- FIN Informacion redes -->
 
-<!-- Scroll to get_data -->
+<!-- Resultados -->
+<%= render 'partials/resultados' %>
+<!-- FIN Resultados -->
+
+
+<!-- Scroll to resultados -->
 <script type="text/javascript">
   $(document).ready(function() {
     $('html, body').animate({
-        scrollTop: $("#get_data_div").offset().top
+        scrollTop: $("#show_res_div").offset().top
     }, 1000);
 
-    $("#focus1").focus();
   });
 </script>

@@ -1,24 +1,24 @@
-Nombre:		R2
-Red:		192.168.0.0 /26
-Mascara:	255.255.255.192
-Primer host:	192.168.0.1
-Ultimo host:	192.168.0.64
-Total de host:	62
-broadcast:	192.168.0.64
----
 Nombre:		R1
-Red:		192.168.0.64 /27
+Red:		192.0.0.0 /27
 Mascara:	255.255.255.224
-Primer host:	192.168.0.65
-Ultimo host:	192.168.0.96
+Primer host:	192.0.0.1
+Ultimo host:	192.0.0.32
 Total de host:	30
-broadcast:	192.168.0.96
+broadcast:	192.0.0.32
+---
+Nombre:		R2
+Red:		192.0.0.32 /27
+Mascara:	255.255.255.224
+Primer host:	192.0.0.33
+Ultimo host:	192.0.0.48
+Total de host:	30
+broadcast:	192.0.0.48
 ---
 Nombre:		S1
-Red:		192.168.0.96 /30
+Red:		192.0.0.64 /30
 Mascara:	255.255.255.252
-Primer host:	192.168.0.97
-Ultimo host:	192.168.0.98
+Primer host:	192.0.0.65
+Ultimo host:	192.0.0.66
 Total de host:	2
-broadcast:	192.168.0.100
+broadcast:	192.0.0.68
 ---
