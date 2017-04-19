@@ -1,13 +1,12 @@
+<!--
 <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm fixed-top">
 
-<!--
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
--->
 
   <%= link_to 'Calculadora VLSM', {controller: :main, action: :index}, class: "navbar-brand" %>
-<!--
+
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <div class="navbar-nav mr-auto">
 
@@ -17,5 +16,10 @@
       <%= link_to 'Sing-in', {controller: :main, action: :sing_in}, class: "btn btn-success" %>
     </div>
   </div>
+
+</nav>
 -->
+
+<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm fixed-top">
+  <%= link_to 'Calculadora VLSM', {controller: :main, action: :index}, class: "navbar-brand" %>
 </nav>

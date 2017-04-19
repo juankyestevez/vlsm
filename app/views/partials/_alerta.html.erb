@@ -1,7 +1,17 @@
+<style>
+  .color-alerta{background-color: rgba(255, 102, 102, 1)}
+  .letra-alerta-titulos{font-size: 1.2rem; color: rgba(255, 0, 0, 1)}
+</style>
+
 <% if flash[:mensaje] %>
-  <h1>
-    <%= flash[:mensaje] %>
-  </h1>
+  <div class="container">
+
+    <div class="row justify-content-center text-uppercase my-5 color-alerta letra-datos-titulos">
+      <%= label_tag flash[:mensaje] %>
+    </div>
+
+  </div>
 <% end %>
+
 
 <!-- PONER ESTILOS -->

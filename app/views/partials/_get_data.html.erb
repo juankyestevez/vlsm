@@ -6,6 +6,7 @@
   .letra-color{color: rgb(0, 0, 0)}
   .linea-separacion{height: 1px}
   .color-linea-separacion{background-color: rgba(0, 0, 0, 0.8)}
+  .prueba{background-color: red}
 </style>
 
 <div class="container">
@@ -165,17 +166,16 @@
       <%= hidden_field_tag :calculado, :true %>
       <!-- FIN Numero de redes -->
 
+
+      <div class="row justify-content-center mt-sm-3 mt-md-5">
+        <% if @claculado %>
+          <%= submit_tag 'Calcular', class: "btn btn-success button-click", disabled: true %>
+        <% else %>
+          <%= submit_tag 'Calcular', class: "btn btn-success button-click" %>
+        <% end %>
+      </div>
+
     </div>
-
-
-    <div class="row justify-content-center mt-sm-3 mt-md-5">
-      <% if @claculado %>
-        <%= submit_tag 'Calcular', class: "btn btn-success button-click", disabled: true %>
-      <% else %>
-        <%= submit_tag 'Calcular', class: "btn btn-success button-click" %>
-      <% end %>
-    </div>
-
 
   <% end %>
   <!-- FIN Insertar datos de cada red -->

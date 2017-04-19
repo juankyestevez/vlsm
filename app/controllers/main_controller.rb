@@ -64,7 +64,7 @@ class MainController < ApplicationController
 
 
   def sing_in
-    flash[:mensaje] = ""
+    
   end
 
 

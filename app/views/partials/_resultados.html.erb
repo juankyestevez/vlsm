@@ -34,8 +34,8 @@
           <%= label_tag "Nombre de la red:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:nombre], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:nombre], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Nombre de la red -->
@@ -43,15 +43,12 @@
 
       <!-- Direccion de red -->
       <div class="row justify-content-center">
-        <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
+        <div class="col-sm-5 offset-sm-2 col-md-4 offset-md-2 col-lg-4 offset-lg-2">
           <%= label_tag "Dirección de red:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-3 col-md-3">
-          <%= label_tag r[:red], nil, class: "letra-res letra-res-color" %>
-        </div>
-        <div class="col-sm-1 col-md-3">
-          <%= label_tag "/#{r[:mascara_num]}", nil, class: "letra-res letra-res-color" %>
+        <div class="col-sm-5 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag "#{r[:red]}  /#{r[:mascara_num]}", nil, class: "letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Direccion de red -->
@@ -62,8 +59,8 @@
           <%= label_tag "Máscara de red:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:mascara], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:mascara], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Mascara de la red -->
@@ -74,8 +71,8 @@
           <%= label_tag "Primer host:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:primer_host], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:primer_host], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Primer host de la red -->
@@ -86,8 +83,8 @@
           <%= label_tag "Ultimo host:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:ultimo_host], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:ultimo_host], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Ultimo host de la red -->
@@ -98,8 +95,8 @@
           <%= label_tag "Total de hosts:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:host_total], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:host_total], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Total de hosts -->
@@ -110,8 +107,8 @@
           <%= label_tag "Broadcast:", nil, class: "letra-res letra-res-color" %>
         </div>
 
-        <div class="col-sm-4 col-md-6">
-          <%= label_tag r[:broadcast], nil, class: "mw-100 pl-2 ml-md-2 letra-res letra-res-color" %>
+        <div class="col-sm-4 col-md-6 col-lg-4 offset-lg-1">
+          <%= label_tag r[:broadcast], nil, class: "mw-100 letra-res letra-res-color" %>
         </div>
       </div>
       <!-- FIN Direccion de broadcast -->

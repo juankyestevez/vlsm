@@ -1,0 +1,35 @@
+<style>
+  .footer-fondo{background-color: rgba(41, 43, 44, 1) !important}
+  .footer-color{color: rgba(255, 255, 255, 1)}
+  .footer-letra-size{font-size: 1rem}
+  .footer-titulo-size{font-size: 1.3rem}
+</style>
+
+
+<div class="container-fluid footer-fondo pb-3">
+
+  <div class="container pt-5 pb-2 footer-letra-size">
+    <div class="row footer-titulo-size mb-4">
+      <%= label_tag "Calculadora", nil, class: "footer-color" %>
+      <%= label_tag "VLSM", nil, class: "footer-color text-uppercase ml-3" %>
+    </div>
+
+    <div class="row mt-3 ">
+      <%= label_tag "Desarrollado por:", nil, class: "footer-color" %>
+      <%= label_tag "Juan", nil, class: "footer-color ml-3" %>
+      <%= label_tag "C.", nil, class: "footer-color ml-1" %>
+      <%= label_tag "Estévez", nil, class: "footer-color ml-1" %>
+    </div>
+
+    <div class="row">
+      <%= label_tag "Correo electronico:", nil, class: "footer-color" %>
+      <%= label_tag "juankyestevez@gmail.com", nil, class: "footer-color ml-3 text-lowercase" %>
+    </div>
+
+    <div class="row">
+      <%= label_tag "GitHub:", nil, class: "footer-color" %>
+      <%= label_tag "https://github.com/juankyestevez", nil, class: "footer-color ml-3 text-lowercase" %>
+    </div>
+  </div>
+
+</div>
