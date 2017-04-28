@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get 'main/sing_up'
 
+  post 'main/descargar_txt'
+  post 'main/descargar_xlsx'
+
   # Las rutas no encontradas son redirigidas a la ruta raiz
   get "*path" => redirect("/")
   post "*path" => redirect("/")

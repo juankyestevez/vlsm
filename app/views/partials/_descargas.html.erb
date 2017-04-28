@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="row justify-content-around mb-5 py3">
+
+    <div class="col d-flex justify-content-center">
+      <%= button_to "Descargar .txt", {action: :descargar_txt, archivo_txt: @archivo_txt}, class: "btn btn-success button-click" %>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <%= button_to "Descargar Excel", {action: :descargar_xlsx, archivo_excel: @archivo_excel}, class: "btn btn-success button-click" %>
+    </div>
+
+  </div>
+
+</div>
