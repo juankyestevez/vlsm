@@ -1,0 +1,20 @@
+Nombre:		A
+Red:		192.168.0.0 /26
+Mascara:	255.255.255.192
+Primer host:	192.168.0.1
+Ultimo host:	192.168.0.64
+Total de host:	62
+broadcast:	192.168.0.64
+---
+
+
+Nombre:		B
+Red:		192.168.0.64 /27
+Mascara:	255.255.255.224
+Primer host:	192.168.0.65
+Ultimo host:	192.168.0.96
+Total de host:	30
+broadcast:	192.168.0.96
+---
+
+
